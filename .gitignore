@@ -4,3 +4,6 @@
 .Ruserdata
 
 /.quarto/
+venv/*
+R/*
+.DS_Store

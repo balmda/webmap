@@ -4,7 +4,6 @@ project:
 
 book:
   title: "Project Title"
-  downloads: [pdf]
   page-navigation: true
   date: today
   author: "Brian"
@@ -42,7 +41,7 @@ book:
 
 
 link-external-newwindow: true
-link-external-icon: true 
+# link-external-icon: true 
 
 execute:
  echo: false
