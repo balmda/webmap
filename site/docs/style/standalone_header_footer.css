@@ -1,0 +1,318 @@
+
+
+ul {
+    list-style: none;
+}
+*/
+/* Always show a vertical scrollbar, even when there is no scrolling */
+html {
+    overflow-y: scroll;
+}
+
+
+/* ---------------------------------------------------------------------
+ HTML5 Block / Inline Block declarations
+------------------------------------------------------------------------ */
+nav, section {
+    display: block;
+}
+
+/* ---------------------------------------------------------------------
+ Form Reset Styles
+------------------------------------------------------------------------ */
+
+::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/* ---------------------------------------------------------------------
+ Base Styles
+------------------------------------------------------------------------ */
+
+
+a {
+    color: #0054a4;
+    
+   /*  text-decoration: none;*/
+    -moz-transition:
+        color 0.15s ease-in-out,
+        border 0.15s ease-in-out,
+        background-color 0.15s ease-in-out,
+        opacity 0.15s ease-in-out 0s;
+    -webkit-transition:
+        color 0.15s ease-in-out,
+        border 0.15s ease-in-out,
+        background-color 0.15s ease-in-out,
+        opacity 0.15s ease-in-out 0s;
+    -ms-transition:
+        color 0.15s ease-in-out,
+        border 0.15s ease-in-out,
+        background-color 0.15s ease-in-out,
+        opacity 0.15s ease-in-out 0s;
+    -o-transition:
+        color 0.15s ease-in-out,
+        border 0.15s ease-in-out,
+        background-color 0.15s ease-in-out,
+        opacity 0.15s ease-in-out 0s;
+    transition:
+        color 0.15s ease-in-out,
+        border 0.15s ease-in-out,
+        background-color 0.15s ease-in-out,
+        opacity 0.15s ease-in-out 0s;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+    /* liz commented out */
+    /*color: #0070e0; */
+}
+
+img { max-width: 100%; }
+
+a {
+    transition: color .22s ease;
+}
+  
+a {
+    background-color: transparent;
+}
+
+.navigation {
+    position: relative;
+    top: 2px;
+    background-color: #ededed;
+}
+
+.navigation-main {
+  position: relative;
+}
+
+.main-logo {
+    margin: 10px 0 11px 21px;
+    float: left;
+}
+
+.footer-social {
+    padding: 40px 0px 40px 0px;
+    background-color: #043971;
+}
+
+.footer-textblue {
+    color: rgb(180,213,240);
+    font-size: 13px;
+    font-family: "Roman", "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
+}
+
+.copyright { float: right; }
+
+.copyright { 
+  float: left; 
+  color: rgb(180,213,240);
+}
+
+.footer-columns {
+    margin-top: 20px;
+}
+
+.footer-columns, .footer-columns a {
+    color: white;
+    text-decoration: none;
+    font: 13px "Roman", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+}
+
+.footer-columns h4{
+  margin-top: 0;
+}
+
+.footer-columns, .footer-columns a:hover, a:focus {
+    text-decoration: underline;
+    /* liz commented out */
+    /*color: #0070e0; */
+}
+
+.footer-columns > div > div {
+/*    width: 15%!important;*/
+    padding-right: 5%;
+    position: relative;
+}
+
+.footer-divider-small {
+    position: absolute;
+    left: -30px;
+    height: 70px;
+    border-right: 1px solid rgb(180,213,240);
+}
+
+.standalone-footer {
+    padding-left: 5%;
+    line-height: 1.5;
+}
+
+.standalone-footer .footer-col {
+/*    width: 25%;*/
+    float: left;
+}
+
+.wysiwyg {line-height: 1.5;}
+
+nav ul, nav li { margin: 0; }
+nav ul { list-style:none; }
+
+
+/* Responsify Defaults */
+
+
+
+@media screen and (max-width: 480px){
+  nav ul li{
+    width: 100%;
+    margin: 0 0 5px 0;
+  }
+
+  nav a{
+    margin: 0;
+    padding: 14px 0 14px 0;
+  }
+
+}
+  
+@media screen and (max-width: 1024px) {
+ /* Add your styles for devices with a maximum width of 1024 */ 
+  .footer-social {
+    padding: 40px 5% 40px 5%;
+    background-color: #043971;
+}
+
+}
+  
+@media screen and (max-width: 765px) {
+ /* Add your styles for devices with a maximum width of 768 */ 
+  .footer-social {
+    padding: 40px 5% 40px 5%;
+    background-color: #043971;
+}
+    .standalone-footer .footer-columns {
+        margin-top: 0px;
+    }
+    .standalone-footer .footer-col {
+        width: 100%;
+        float: none;
+        padding: 20px 0px;
+    }
+    .standalone-footer .footer-divider-small {
+        border-right: 0px;
+    }
+}  
+
+@media screen and (max-width: 480px) {
+ /* Add your styles for devices with a maximum width of 480 */
+  
+  .footer-social {
+    padding: 40px 5% 40px 5%;
+    background-color: #043971;
+}
+
+
+
+}
+
+/* Micro Clearfix */
+
+/* For modern browsers */
+.cf:before,
+.cf:after {
+    content:"";
+    display:table;
+}
+
+.cf:after {
+    clear:both;
+}
+
+
+@media print {
+  
+  #navigation,
+  .footer-social 
+  {
+    display: none;
+  }
+}
+
+
+.main-logo {
+    margin-right: 60px;
+    margin-left: 60px;
+    margin-top: 15px;
+}
+    .navigation {
+         top: 0px;
+    }
+
+    .main-nav-new * {
+        box-sizing: border-box;
+    }
+
+    .main-nav-new {
+        font-size: 19px;
+        font-family: "Condensed", "Arial Narrow", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+        padding-left: 0;
+        display: flex;
+        float: left;
+    }
+
+        .main-nav-new > li {
+            /* float: left; */
+        }
+        
+        .main-nav-new > li > a {
+            font-size: 18px;
+            font-family: "Condensed", "Arial Narrow", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+            display: inline-block;
+            border-style: solid;
+            /* padding: 33px 9px 34px 36px; */
+            padding: 38px 18px 38px 18px;
+            border-color: transparent;
+            margin-right:1px;
+            position: relative;
+            z-index: 116;
+            color: #0054a4;
+            /*background: transparent url(..App_Themes/METC/Images/arrow-sprite.png) 14px 34px scroll no-repeat;*/
+            text-transform: uppercase;
+            
+            text-decoration: none; 
+            height: 100%;
+        }
+
+
+ /* dkgray */
+   .theme-dkgray > a.current-top-nav {
+        border-color: #fff;
+        background-color: #fff;
+        color: #0054a4;
+    }
+    .theme-dkgray > a:hover, .theme-dkgray > a:focus  {
+        border-color: #d6d6d6;
+        background-color: #d6d6d6;
+        color: #0054a4;
+    }
+
+
+@media screen and (max-width: 1024px){
+
+    nav {
+        width: 100%;
+    }
+
+    .main-nav-new {
+        display: none;
+    }
+
+
+}

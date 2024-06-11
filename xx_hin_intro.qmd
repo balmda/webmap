@@ -1,0 +1,31 @@
+# HIN Intro
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  fig.pos = "H",
+  # results = FALSE,
+  out.width = "100%",
+  dpi = 300
+)
+
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+```
+
+```{r, include=FALSE}
+# Load packages -----
+source("R/_load_packages.R")
+```
+
+<!-- Removed the paragraph about the BIL since it's repetive from 04-01.-->
+
+There are many established ways to examine crashes to better understand traffic safety patterns. Hotspot analyses have long been used to address high crash locations by retrospectively identifying the greatest concentrations of reported crashes over a determined period of time. Hotspot analysis is a valuable method to visualize locations with historic crash issues, but it is less effective at identifying locations with latent crash risk factors. In this way, it can be described as reactive. Additionally, hotspots may be less effective for analyzing bicyclist safety if crash frequencies are low due to geographic sparsity, which can exacerbate issues related to regression to the mean. Conversely, a systemic analysis is effective for identifying roadways with risk factors for crashes, independent from their crash history. For example, a wide arterial with a 45-mph posted speed limit, high traffic volumes, no bike facility, and few trip-attracting land uses may not have any reported bike crashes. However, the roadway and operational characteristics of that arterial are associated with higher bicycle crash risk. The absence of crashes is therefore not a reflection of low crash risk, but a reflection of lack of exposure that hotspot analyses cannot adequately convey. Systemic analysis is largely proactive; it allows planners and engineers to find locations that may warrant safety improvements before crashes have occurred there. 
+
+<!--Are we describing proactive or systemic analysis anywhere? This could be a good place for a couple of sentences about those, which would then set up the HIN paragraph well as the balance. -js reworked the prior paragraph to set up HIN in this way.--> 
+
+High injury networks strike a balance between entirely retrospective and entirely proactive methods. Using spatial patterns of crash history, a High Injury Network identifies areas on the road network where crashes have been concentrated in sequence. A stretch of arterial roadway with crashes occurring at every other intersection might not show up on a traditional hotspot analysis because no one location has multiple crashes happening in the same place. However, the pattern of crashes all along the corridor suggests a larger safety issue. Further, the entire corridor likely shares similar characteristics that could be addressed systemically – even the intersections along the corridor that have not yet had crashes.
+
+<!-- removed prose that is duplicated in intro 04-01 text. // To improve the safety of vulnerable road users in the state of Minnesota and partially satisfy the new VRUSA requirements, the Minnesota Department of Transportation’s (MnDOT) Office of Traffic Engineering (OTE) commissioned a Vulnerable Road User Safety Assessment, including development of a High Injury Network for the state, among other analyses. While bicyclists and pedestrians are different roadway users, use different infrastructure in many places, and have different safety concerns, both bicyclists and pedestrians are vulnerable roadway users that are disproportionately likely to be killed or severely injured in the transportation system.-->
+
+This section describes the development of a statewide High Injury Network and the results of the related High Injury Network analysis. The High Injury Network was built from a standard sliding windows analysis, which measures severity-weighted crash density by mode along segments on the network. 

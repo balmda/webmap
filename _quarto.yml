@@ -1,0 +1,93 @@
+project:
+  type: book
+  output-dir: "docs"
+
+book:
+  title: "Project Title"
+  downloads: [pdf]
+  page-navigation: true
+  date: today
+  author: "Brian"
+  # template: "style/ssrc-template.html"
+  search:
+    location: navbar
+    type: overlay
+  # search:
+  #   location: navbar
+  #   type: overlay
+  #   algolia:
+  #     index-name: ssrc_test
+  #     application-id: ZCNW5CVNR9
+  #     search-only-api-key: a19f4d521574295ab4aec4934a2ef089
+  #     analytics-events: true
+  #     show-logo: true
+  sidebar:
+    pinned: True
+    alignment: center
+    style: "docked"
+    search: true
+    collapse-below: lg
+    background: $background-blue-3
+    footer: "If you are working on anything related to safety research, planning, policy, or data science, or thinking about a safety-related project, we would love to connect with you."
+  chapters:
+    - index.qmd
+    
+    - part: analysis.qmd
+      chapters: 
+      - xx_map.qmd
+      - xx_hin_intro.qmd
+      - xx_intro_purpose.qmd
+  appendices:
+    - xx_acronyms.qmd
+
+
+link-external-newwindow: true
+link-external-icon: true 
+
+execute:
+ echo: false
+ code-overflow: wrap
+
+comments:
+  hypothesis: true
+  
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    theme: [architect, style/ssrc.scss, style/font.scss] 
+    fig-responsive: true
+    template: "style/ssrc-template.html"
+    crossref: 
+      ref-hyperlink: true
+      appendix-title: "Appendix"
+    resources:
+      - style/standalone_footer.html
+      - style/standalone_header.html
+      - style/footer-logo.png
+      - style/main-logo.png
+      - style/Safe Streets Logo_outlines.png
+      - style/standalone_header_footer.css
+  docx:
+    output-file: testing_word_output.docx
+    output-ext: docx
+    toc: true
+    toc-depth: 2
+    reference-doc: SafeStreets_Memo1.docx
+    number-sections: true
+    citeproc: true
+    allow-html: true
+    prefer-html: true
+    knitr:
+      opts_knit:
+        always_allow_html: yes
+
+
+filters:
+  - assets/include-files.lua
+  - quarto
+
+metadata-files:
+  - _frontmatter.yml
+
+quarto-required: 1.2.475

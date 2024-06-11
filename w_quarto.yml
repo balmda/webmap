@@ -1,0 +1,119 @@
+project:
+  type: website
+  output-dir: "site"
+  resources:
+    - style/standalone_footer.html
+    - style/standalone_header.html
+    - style/footer-logo.png
+    - style/Safe Streets Logo_outlines.png
+    - style/standalone_header_footer.css
+  # template: "style/council-template.html"
+
+website:
+  title: "Project Title"
+  page-navigation: true
+  # template: "style/council-template.html"
+  search: 
+    location: navbar
+    type: overlay
+  sidebar:
+    width: 50px
+    pinned: True
+    alignment: center
+    style: "docked"
+    search: true
+    collapse-below: lg
+    background: $background-blue-3
+    footer: "If you are working on anything related to safety research, planning, policy, or data science, or thinking about a safety-related project, we would love to connect with you."
+    contents:
+    - text: "Home"
+      href: index.qmd
+    - section: "Analysis"
+      contents: 
+      - xx_map.qmd
+      - xx_hin_intro.qmd
+      - xx_intro_purpose.qmd
+    - text: "Acronyms"
+      href: xx_acronyms.qmd
+  navbar:
+    collapse-below: lg
+    left:
+      - href: index.qmd
+        text: home
+      - href: xx_map.qmd
+        text: mapping
+      - href: xx_hin_intro.qmd
+        text: xx_hin_intro
+      - href: xx_intro_purpose.qmd
+        text: xx_intro_purpose
+      - href: xx_acronyms.qmd
+        text: xx_acronyms
+      - text: About SSRC
+        menu: 
+          - text: "About"
+            icon: "question-circle"
+            href: https://safestreetsresearch.com/about
+          - text: "Team"
+            icon: "bi-file-person-fill"
+            href: https://safestreetsresearch.com/about/#team
+          - text: "Contact Us"
+            icon: "chat-right-text"
+            href: https://safestreetsresearch.com/contact
+    right:
+      - icon: github
+        href: https://github.com/
+        aria-label: GitHub
+  page-footer:
+    center:
+      - text: "About"
+        href: https://safestreetsresearch.com/about
+      - text: "Team"
+        href: https://safestreetsresearch.com/about/#team
+      - text: "Contact Us"
+        href: https://safestreetsresearch.com/contact
+    right:
+      - icon: twitter
+        href: https://x.com/rebeccalsanders
+        aria-label: Twitter
+      - icon: linkedin
+        href: https://www.linkedin.com/company/safe-streets-research/
+        aria-label: linkedin
+
+
+
+link-external-newwindow: true
+link-external-icon: true 
+
+execute:
+ echo: false
+ code-overflow: wrap
+
+# format:
+#   html:
+#     theme: [architect, style/council.scss, style/font.scss] 
+#     toc: true
+#     toc-depth: 3
+#     copyright: "xyz"
+#     fig-responsive: true
+
+format:
+  html:
+    toc: true
+    theme:
+      light: [architect, style/council.scss, style/font.scss] 
+    code-overflow: wrap
+    css: [style/council.scss, style/font.scss] 
+    include-after-body: js.html
+    grid:
+      sidebar-width: 250px
+      body-width: 900px
+      margin-width: 300px
+
+filters:
+  - assets/include-files.lua
+  - quarto
+
+metadata-files:
+  - _frontmatter.yml
+
+quarto-required: 1.2.475

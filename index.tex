@@ -1,0 +1,850 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  letterpaper,
+]{scrbook}
+
+\usepackage{amsmath,amssymb}
+\usepackage[]{libertinus}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Project Title},
+  pdfauthor={Brian},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Project Title}
+\author{Brian}
+\date{6/11/24}
+
+\begin{document}
+\frontmatter
+\maketitle
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, boxrule=0pt, interior hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced, frame hidden, sharp corners]}{\end{tcolorbox}}\fi
+
+\renewcommand*\contentsname{Table of contents}
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\mainmatter
+\bookmarksetup{startatroot}
+
+\hypertarget{preface}{%
+\chapter{Preface}\label{preface}}
+
+Lorem Ipsum is simply dummy text of the printing and typesetting
+industry. Lorem Ipsum has been the industry's standard dummy text ever
+since the 1500s, when an unknown printer took a galley of type and
+scrambled it to make a type specimen book. It has survived not only five
+centuries, but also the leap into electronic typesetting, remaining
+essentially unchanged. It was popularised in the 1960s with the release
+of Letraset sheets containing Lorem Ipsum passages, and more recently
+with desktop publishing software like Aldus PageMaker including versions
+of Lorem Ipsum.
+
+\hypertarget{lorem-ipsum-2}{%
+\section{Lorem Ipsum 2}\label{lorem-ipsum-2}}
+
+\textbf{\emph{Lorem Ipsum}}
+
+Lorem Ipsum is simply dummy text of the printing and typesetting
+industry. Lorem Ipsum has been the industry's standard dummy text ever
+since the 1500s, when an unknown printer took a galley of type and
+scrambled it to make a type specimen book. It has survived not only five
+centuries, but also the leap into electronic typesetting, remaining
+essentially unchanged. It was popularised in the 1960s with the release
+of Letraset sheets containing Lorem Ipsum passages, and more recently
+with desktop publishing software like Aldus PageMaker including versions
+of Lorem Ipsum.
+
+\newpage
+
+\part{analysis.qmd}
+
+\hypertarget{mapping-counts}{%
+\chapter{Mapping + Counts}\label{mapping-counts}}
+
+\hypertarget{introduction}{%
+\chapter{Introduction}\label{introduction}}
+
+Note: counts filtered to only include counts conducted between
+2018-2022. We have all historical counts for permanent counters and
+2017-2023 SDC stored in our database.
+
+\hypertarget{count-locations}{%
+\section{Count Locations}\label{count-locations}}
+
+Figure~\ref{fig-count_locs} displays where we have permanent (magenta)
+and short duration counts (yellow) available for this effort.
+
+\begin{figure}
+
+{\centering 
+
+}
+
+\caption{\label{fig-count_locs}Permanant and Short Duration Count
+Locations}
+
+\end{figure}
+
+\hypertarget{permanent-counters}{%
+\subsection{Permanent Counters}\label{permanent-counters}}
+
+\hypertarget{tbl-perm_summary}{}
+\begin{longtable}[t]{lllll}
+\caption{\label{tbl-perm_summary}Perm Summary/Overview (only includes 2018-2022 counts). }\tabularnewline
+
+\toprule
+\cellcolor[HTML]{002060}{\textcolor{white}{\textbf{name}}} & \cellcolor[HTML]{002060}{\textcolor{white}{\textbf{install\_date}}} & \cellcolor[HTML]{002060}{\textcolor{white}{\textbf{uninstall\_date}}} & \cellcolor[HTML]{002060}{\textcolor{white}{\textbf{obs\_duration}}} & \cellcolor[HTML]{002060}{\textcolor{white}{\textbf{modes}}}\\
+\midrule
+2nd Ave PBL & 4/23/16 &  & 4 years 11 mons 30 days 23:00:00 & Bike\\
+39th Ave NE Greenway & 1/1/14 & 5/31/18 & 0 years 4 mons 29 days 23:00:00 & Bike\\
+BGT & 1/1/14 &  & 4 years 11 mons 30 days 23:00:00 & Bike and Ped\\
+Broadway PBL & 1/1/14 & 10/30/21 & 3 years 9 mons 29 days 23:00:00 & Bike\\
+Chief Sealth & 1/1/14 & 10/30/21 & 1 year 4 mons 29 days 23:00:00 & Bike\\
+\addlinespace
+Elliot Bay & 5/11/13 & 12/11/22 & 4 years 11 mons 10 days 23:00:00 & Bike and Ped\\
+Fremont Bridge & 10/8/12 &  & 4 years 11 mons 30 days 23:00:00 & Bike\\
+MTS or I-90 Trail & 12/18/13 & 12/31/21 & 3 years 11 mons 30 days 23:00:00 & Bike and Ped\\
+NW 58th St & 1/1/14 & 7/31/22 & 4 years 6 mons 30 days 23:00:00 & Bike\\
+Spokane Bridge & 11/24/13 &  & 4 years 11 mons 30 days 23:00:00 & Bike\\
+\bottomrule
+\end{longtable}
+
+\hypertarget{consectuive-zeros}{%
+\subsection{Consectuive Zeros}\label{consectuive-zeros}}
+
+\hypertarget{tbl-perm_summary_zero}{}
+\begin{longtable}[t]{lrlll}
+\caption{\label{tbl-perm_summary_zero}QC: Consectuive Zeros (only includes 2018-2022 counts). }\tabularnewline
+
+\toprule
+\cellcolor[HTML]{002060}{\textcolor{white}{\textbf{station\_id}}} & \cellcolor[HTML]{002060}{\textcolor{white}{\textbf{year}}} & \cellcolor[HTML]{002060}{\textcolor{white}{\textbf{n\_zero\_flags}}} & \cellcolor[HTML]{002060}{\textcolor{white}{\textbf{n\_records}}} & \cellcolor[HTML]{002060}{\textcolor{white}{\textbf{pct\_flagged}}}\\
+\midrule
+2nd\_nb & 2018 & 0 & 8,760 & 0.00\%\\
+2nd\_nb & 2019 & 0 & 8,760 & 0.00\%\\
+2nd\_nb & 2020 & 0 & 8,784 & 0.00\%\\
+2nd\_nb & 2021 & 0 & 8,736 & 0.00\%\\
+2nd\_nb & 2022 & 12 & 8,760 & 0.14\%\\
+\addlinespace
+2nd\_sb & 2018 & 0 & 8,760 & 0.00\%\\
+2nd\_sb & 2019 & 0 & 8,760 & 0.00\%\\
+2nd\_sb & 2020 & 0 & 8,784 & 0.00\%\\
+2nd\_sb & 2021 & 0 & 8,736 & 0.00\%\\
+2nd\_sb & 2022 & 12 & 8,760 & 0.14\%\\
+\addlinespace
+39\_nb & 2018 & 18 & 3,600 & 0.50\%\\
+39\_sb & 2018 & 18 & 3,600 & 0.50\%\\
+58\_eb & 2018 & 0 & 8,760 & 0.00\%\\
+58\_eb & 2019 & 293 & 8,088 & 3.62\%\\
+58\_eb & 2020 & 327 & 8,040 & 4.07\%\\
+\addlinespace
+58\_eb & 2021 & 0 & 8,726 & 0.00\%\\
+58\_eb & 2022 & 0 & 5,088 & 0.00\%\\
+58\_wb & 2018 & 0 & 8,760 & 0.00\%\\
+58\_wb & 2019 & 271 & 8,088 & 3.35\%\\
+58\_wb & 2020 & 364 & 8,040 & 4.53\%\\
+\addlinespace
+58\_wb & 2021 & 0 & 8,726 & 0.00\%\\
+58\_wb & 2022 & 0 & 5,088 & 0.00\%\\
+90\_b\_eb & 2018 & 231 & 8,760 & 2.64\%\\
+90\_b\_eb & 2019 & 308 & 8,760 & 3.52\%\\
+90\_b\_eb & 2020 & 170 & 8,784 & 1.94\%\\
+\addlinespace
+90\_b\_eb & 2021 & 862 & 8,760 & 9.84\%\\
+90\_b\_wb & 2018 & 231 & 8,760 & 2.64\%\\
+90\_b\_wb & 2019 & 338 & 8,760 & 3.86\%\\
+90\_b\_wb & 2020 & 170 & 8,784 & 1.94\%\\
+90\_b\_wb & 2021 & 1,794 & 8,760 & 20.48\%\\
+\addlinespace
+90\_p\_eb & 2018 & 231 & 8,760 & 2.64\%\\
+90\_p\_eb & 2019 & 3,370 & 8,760 & 38.47\%\\
+90\_p\_eb & 2020 & 7,404 & 8,784 & 84.29\%\\
+90\_p\_eb & 2021 & 8,760 & 8,760 & 100.00\%\\
+90\_p\_wb & 2018 & 231 & 8,760 & 2.64\%\\
+\addlinespace
+90\_p\_wb & 2019 & 3,370 & 8,760 & 38.47\%\\
+90\_p\_wb & 2020 & 7,404 & 8,784 & 84.29\%\\
+90\_p\_wb & 2021 & 8,760 & 8,760 & 100.00\%\\
+bgt\_b\_nb & 2018 & 2,390 & 8,760 & 27.28\%\\
+bgt\_b\_nb & 2019 & 0 & 8,760 & 0.00\%\\
+\addlinespace
+bgt\_b\_nb & 2020 & 0 & 7,008 & 0.00\%\\
+bgt\_b\_nb & 2021 & 0 & 1,464 & 0.00\%\\
+bgt\_b\_nb & 2022 & 0 & 8,760 & 0.00\%\\
+bgt\_b\_sb & 2018 & 2,378 & 8,760 & 27.15\%\\
+bgt\_b\_sb & 2019 & 0 & 8,760 & 0.00\%\\
+\addlinespace
+bgt\_b\_sb & 2020 & 0 & 7,008 & 0.00\%\\
+bgt\_b\_sb & 2021 & 0 & 1,464 & 0.00\%\\
+bgt\_b\_sb & 2022 & 0 & 8,760 & 0.00\%\\
+bgt\_p\_nb & 2018 & 2,488 & 8,760 & 28.40\%\\
+bgt\_p\_nb & 2019 & 0 & 8,760 & 0.00\%\\
+\addlinespace
+bgt\_p\_nb & 2020 & 363 & 7,008 & 5.18\%\\
+bgt\_p\_nb & 2021 & 1,464 & 1,464 & 100.00\%\\
+bgt\_p\_nb & 2022 & 8,760 & 8,760 & 100.00\%\\
+bgt\_p\_sb & 2018 & 2,486 & 8,760 & 28.38\%\\
+bgt\_p\_sb & 2019 & 0 & 8,760 & 0.00\%\\
+\addlinespace
+bgt\_p\_sb & 2020 & 0 & 7,008 & 0.00\%\\
+bgt\_p\_sb & 2021 & 1,464 & 1,464 & 100.00\%\\
+bgt\_p\_sb & 2022 & 8,760 & 8,760 & 100.00\%\\
+brd\_nb & 2018 & 112 & 8,760 & 1.28\%\\
+brd\_nb & 2019 & 0 & 7,344 & 0.00\%\\
+\addlinespace
+brd\_nb & 2020 & 629 & 5,112 & 12.30\%\\
+brd\_nb & 2021 & 1,093 & 7,272 & 15.03\%\\
+brd\_sb & 2018 & 216 & 8,760 & 2.47\%\\
+brd\_sb & 2019 & 0 & 7,344 & 0.00\%\\
+brd\_sb & 2020 & 727 & 5,112 & 14.22\%\\
+\addlinespace
+brd\_sb & 2021 & 1,155 & 7,272 & 15.88\%\\
+cs\_b\_nb & 2020 & 257 & 5,136 & 5.00\%\\
+cs\_b\_nb & 2021 & 2,444 & 7,262 & 33.65\%\\
+cs\_b\_sb & 2020 & 250 & 5,136 & 4.87\%\\
+cs\_b\_sb & 2021 & 2,225 & 7,262 & 30.64\%\\
+\addlinespace
+cs\_p\_nb & 2020 & 5,136 & 5,136 & 100.00\%\\
+cs\_p\_nb & 2021 & 7,262 & 7,262 & 100.00\%\\
+cs\_p\_sb & 2020 & 5,136 & 5,136 & 100.00\%\\
+cs\_p\_sb & 2021 & 7,262 & 7,262 & 100.00\%\\
+eb\_b\_nb & 2018 & 0 & 8,760 & 0.00\%\\
+\addlinespace
+eb\_b\_nb & 2019 & 0 & 8,760 & 0.00\%\\
+eb\_b\_nb & 2020 & 0 & 8,784 & 0.00\%\\
+eb\_b\_nb & 2021 & 1,166 & 8,760 & 13.31\%\\
+eb\_b\_nb & 2022 & 315 & 8,280 & 3.80\%\\
+eb\_b\_sb & 2018 & 0 & 8,760 & 0.00\%\\
+\addlinespace
+eb\_b\_sb & 2019 & 0 & 8,760 & 0.00\%\\
+eb\_b\_sb & 2020 & 0 & 8,784 & 0.00\%\\
+eb\_b\_sb & 2021 & 1,166 & 8,760 & 13.31\%\\
+eb\_b\_sb & 2022 & 315 & 8,280 & 3.80\%\\
+eb\_p\_nb & 2018 & 0 & 8,760 & 0.00\%\\
+\addlinespace
+eb\_p\_nb & 2019 & 0 & 8,760 & 0.00\%\\
+eb\_p\_nb & 2020 & 0 & 8,784 & 0.00\%\\
+eb\_p\_nb & 2021 & 1,166 & 8,760 & 13.31\%\\
+eb\_p\_nb & 2022 & 315 & 8,280 & 3.80\%\\
+eb\_p\_sb & 2018 & 0 & 8,760 & 0.00\%\\
+\addlinespace
+eb\_p\_sb & 2019 & 0 & 8,760 & 0.00\%\\
+eb\_p\_sb & 2020 & 0 & 8,784 & 0.00\%\\
+eb\_p\_sb & 2021 & 1,166 & 8,760 & 13.31\%\\
+eb\_p\_sb & 2022 & 315 & 8,280 & 3.80\%\\
+fmt\_e & 2018 & 0 & 8,760 & 0.00\%\\
+\addlinespace
+fmt\_e & 2019 & 0 & 8,760 & 0.00\%\\
+fmt\_e & 2020 & 0 & 8,784 & 0.00\%\\
+fmt\_e & 2021 & 0 & 8,760 & 0.00\%\\
+fmt\_e & 2022 & 0 & 8,760 & 0.00\%\\
+fmt\_w & 2018 & 0 & 8,760 & 0.00\%\\
+\addlinespace
+fmt\_w & 2019 & 0 & 8,760 & 0.00\%\\
+fmt\_w & 2020 & 0 & 8,784 & 0.00\%\\
+fmt\_w & 2021 & 0 & 8,760 & 0.00\%\\
+fmt\_w & 2022 & 0 & 8,760 & 0.00\%\\
+sb\_eb & 2018 & 0 & 8,760 & 0.00\%\\
+\addlinespace
+sb\_eb & 2019 & 0 & 8,760 & 0.00\%\\
+sb\_eb & 2020 & 0 & 8,784 & 0.00\%\\
+sb\_eb & 2021 & 706 & 8,736 & 8.08\%\\
+sb\_eb & 2022 & 656 & 10,248 & 6.40\%\\
+sp\_wb & 2018 & 0 & 8,760 & 0.00\%\\
+\addlinespace
+sp\_wb & 2019 & 0 & 8,760 & 0.00\%\\
+sp\_wb & 2020 & 0 & 8,784 & 0.00\%\\
+sp\_wb & 2021 & 792 & 8,736 & 9.07\%\\
+sp\_wb & 2022 & 634 & 10,248 & 6.19\%\\
+\bottomrule
+\end{longtable}
+
+\hypertarget{short-duration-counts}{%
+\subsection{Short Duration Counts}\label{short-duration-counts}}
+
+\hypertarget{tbl-sdc_summary}{}
+\begin{longtable}[t]{llrrllll}
+\caption{\label{tbl-sdc_summary}SDC Summary/Overview. }\tabularnewline
+
+\toprule
+\cellcolor[HTML]{002060}{\textcolor{white}{\textbf{dow}}} & \cellcolor[HTML]{002060}{\textcolor{white}{\textbf{study\_time\_cat}}} & \cellcolor[HTML]{002060}{\textcolor{white}{\textbf{n\_sites}}} & \cellcolor[HTML]{002060}{\textcolor{white}{\textbf{n\_hours}}} & \cellcolor[HTML]{002060}{\textcolor{white}{\textbf{n\_bike}}} & \cellcolor[HTML]{002060}{\textcolor{white}{\textbf{n\_ped}}} & \cellcolor[HTML]{002060}{\textcolor{white}{\textbf{bike\_per\_hr}}} & \cellcolor[HTML]{002060}{\textcolor{white}{\textbf{ped\_per\_hr}}}\\
+\midrule
+Weekday & 10:00 AM-12:00 PM & 50 & 1786 & 17,949.0 & 338,965.0 & 10.0 & 189.8\\
+Weekday & 12:00 PM-2:00 PM & 5 & 24 & 466.0 & 11,662.0 & 19.4 & 485.9\\
+Weekday & 5:00 PM-7:00 PM & 49 & 1756 & 62,270.0 & 608,536.0 & 35.5 & 346.5\\
+Weekend & 10:00 AM-12:00 PM & 4 & 8 & 84.0 & 1,392.0 & 10.5 & 174.0\\
+Weekend & 12:00 PM-2:00 PM & 50 & 1770 & 34,339.0 & 559,484.0 & 19.4 & 316.1\\
+\bottomrule
+\end{longtable}
+
+\hypertarget{tbl-sdc_summary_year}{}
+\begin{longtable}[t]{lrllllrr}
+\caption{\label{tbl-sdc_summary_year}SDC Locations. }\tabularnewline
+
+\toprule
+\cellcolor[HTML]{002060}{\textcolor{white}{\textbf{site\_descr}}} & \cellcolor[HTML]{002060}{\textcolor{white}{\textbf{n\_hours}}} & \cellcolor[HTML]{002060}{\textcolor{white}{\textbf{n\_bike}}} & \cellcolor[HTML]{002060}{\textcolor{white}{\textbf{n\_ped}}} & \cellcolor[HTML]{002060}{\textcolor{white}{\textbf{bike\_per\_hr}}} & \cellcolor[HTML]{002060}{\textcolor{white}{\textbf{ped\_per\_hr}}} & \cellcolor[HTML]{002060}{\textcolor{white}{\textbf{start\_year}}} & \cellcolor[HTML]{002060}{\textcolor{white}{\textbf{end\_year}}}\\
+\midrule
+12TH AVE AND E MADISON ST & 108 & 3,698.0 & 60,076.0 & 34.2 & 556.3 & 2018 & 2022\\
+12TH AVE NE AND NE 65TH ST & 108 & 1,793.0 & 31,122.0 & 16.6 & 288.2 & 2018 & 2022\\
+12TH AVE S AND S JACKSON ST & 108 & 3,505.0 & 49,372.0 & 32.5 & 457.1 & 2018 & 2022\\
+15TH AVE NW AND NW MARKET ST & 108 & 253.0 & 44,306.0 & 2.3 & 410.2 & 2018 & 2022\\
+15TH AVE W AND BALLARD BR & 108 & 249.0 & 4,046.0 & 2.3 & 37.5 & 2018 & 2022\\
+\addlinespace
+1ST AVE S AND S JACKSON ST & 108 & 2,347.0 & 39,967.0 & 21.7 & 370.1 & 2018 & 2022\\
+1ST AVE S AND S LANDER ST & 108 & 617.0 & 10,721.0 & 5.7 & 99.3 & 2018 & 2022\\
+23RD AVE AND E UNION ST & 108 & 1,661.0 & 22,367.0 & 15.4 & 207.1 & 2018 & 2022\\
+24TH AVE NW AND NW MARKET ST & 108 & 2,478.0 & 37,370.0 & 22.9 & 346.0 & 2018 & 2022\\
+26TH AVE SW AND SW BARTON ST & 108 & 226.0 & 8,234.0 & 2.1 & 76.2 & 2018 & 2022\\
+\addlinespace
+32ND AVE NW AND NW 54TH ST & 108 & 920.0 & 15,112.0 & 8.5 & 139.9 & 2018 & 2022\\
+32ND AVE W AND W MCGRAW ST & 106 & 487.0 & 22,148.0 & 4.6 & 208.9 & 2018 & 2022\\
+35TH AVE SW AND SW AVALON WAY & 108 & 2,029.0 & 12,141.0 & 18.8 & 112.4 & 2018 & 2022\\
+5TH AVE AND STEWART ST & 108 & 1,552.0 & 82,176.0 & 14.4 & 760.9 & 2018 & 2022\\
+5TH AVE NE AND NE NORTHGATE WAY & 108 & 228.0 & 27,124.0 & 2.1 & 251.1 & 2018 & 2022\\
+\addlinespace
+6TH AVE AND MADISON ST & 108 & 488.0 & 23,366.0 & 4.5 & 216.4 & 2018 & 2022\\
+7TH AVE S AND S JACKSON ST & 108 & 2,502.0 & 25,280.0 & 23.2 & 234.1 & 2018 & 2022\\
+8TH AVE S AND S CLOVERDALE ST & 108 & 617.0 & 3,700.0 & 5.7 & 34.3 & 2018 & 2022\\
+8TH AVE S AND S DEARBORN ST & 108 & 1,477.0 & 5,318.0 & 13.7 & 49.2 & 2018 & 2022\\
+9TH AVE N AND MERCER SR ST & 104 & 5,431.0 & 20,670.0 & 52.2 & 198.8 & 2018 & 2022\\
+\addlinespace
+AIRPORT WAY S AND S VALE ST & 108 & 527.0 & 7,555.0 & 4.9 & 70.0 & 2018 & 2022\\
+ALASKAN WAY AND BROAD ST & 108 & 5,776.0 & 32,154.0 & 53.5 & 297.7 & 2018 & 2022\\
+ALASKAN WAY AND COLUMBIA ST & 102 & 3,061.0 & 25,817.0 & 30.0 & 253.1 & 2018 & 2022\\
+BEACON AVE S AND S LANDER ST & 108 & 1,150.0 & 22,634.0 & 10.6 & 209.6 & 2018 & 2022\\
+BOREN AVE AND PINE ST & 108 & 3,914.0 & 43,796.0 & 36.2 & 405.5 & 2018 & 2022\\
+\addlinespace
+BOSTON ST AND QUEEN ANNE AVE N & 104 & 686.0 & 47,237.0 & 6.6 & 454.2 & 2018 & 2022\\
+BROAD ST AND VALLEY ST & 106 & 2,332.0 & 31,691.0 & 22.0 & 299.0 & 2018 & 2022\\
+BROADWAY AND E PINE ST & 108 & 5,108.0 & 102,787.0 & 47.3 & 951.7 & 2018 & 2022\\
+BROADWAY E AND E OLIVE WAY & 106 & 2,408.0 & 134,418.0 & 22.7 & 1,268.1 & 2018 & 2022\\
+BROOKLYN AVE NE AND NE 45TH ST & 108 & 1,133.0 & 53,149.0 & 10.5 & 492.1 & 2018 & 2022\\
+\addlinespace
+CALIFORNIA AVE SW AND FAUNTLEROY WAY SW & 108 & 950.0 & 14,614.0 & 8.8 & 135.3 & 2018 & 2022\\
+CALIFORNIA AVE SW AND SW ALASKA ST & 108 & 802.0 & 54,691.0 & 7.4 & 506.4 & 2018 & 2022\\
+DENNY WAY AND DEXTER AVE & 108 & 5,286.0 & 50,152.0 & 48.9 & 464.4 & 2018 & 2022\\
+EAST GREEN LAKE DR N AND NE RAVENNA EB BV & 108 & 4,609.0 & 46,378.0 & 42.7 & 429.4 & 2018 & 2022\\
+EAST MARGINAL WAY S AND S HANFORD ST & 108 & 5,813.0 & 958.0 & 53.8 & 8.9 & 2018 & 2022\\
+\addlinespace
+EASTLAKE AVE E AND FUHRMAN AVE E & 108 & 9,226.0 & 13,178.0 & 85.4 & 122.0 & 2018 & 2022\\
+FAIRVIEW AVE N AND MERCER ST & 72 & 344.0 & 9,102.0 & 4.8 & 126.4 & 2018 & 2022\\
+FAIRVIEW AVE N AND VALLEY ST & 108 & 2,086.0 & 12,224.0 & 19.3 & 113.2 & 2018 & 2022\\
+FAUNTLEROY WAY SW AND SW CLOVERDALE ST & 106 & 984.0 & 5,070.0 & 9.3 & 47.8 & 2018 & 2022\\
+FREMONT AVE N AND N 34TH ST & 108 & 15,517.0 & 47,402.0 & 143.7 & 438.9 & 2018 & 2022\\
+\addlinespace
+GREENWOOD AVE N AND N 85TH ST & 108 & 1,026.0 & 25,046.0 & 9.5 & 231.9 & 2018 & 2022\\
+LAKE CITY WAY NE AND NE 125TH ST & 108 & 379.0 & 21,253.0 & 3.5 & 196.8 & 2018 & 2022\\
+LINDEN AVE N AND N 130TH ST & 110 & 2,881.0 & 6,885.0 & 26.2 & 62.6 & 2018 & 2022\\
+M L KING JR WAY S AND RAINIER AVE S & 108 & 197.0 & 8,066.0 & 1.8 & 74.7 & 2018 & 2022\\
+M L KING JR WR WAY S AND S ALASKA ST & 108 & 399.0 & 13,837.0 & 3.7 & 128.1 & 2018 & 2022\\
+\addlinespace
+M L KING JR WR WAY S AND S OTHELLO ST & 108 & 289.0 & 29,229.0 & 2.7 & 270.6 & 2018 & 2022\\
+MONTLAKE BLVD NE AND NE PACIFIC ST & 108 & 467.0 & 74,707.0 & 4.3 & 691.7 & 2018 & 2022\\
+RAINIER AVE S AND S HENDERSON ST & 108 & 352.0 & 11,694.0 & 3.3 & 108.3 & 2018 & 2022\\
+SAND POINT WAY NE AND NE 65TH ST & 108 & 903.0 & 6,909.0 & 8.4 & 64.0 & 2018 & 2022\\
+STONE WAY N AND N 45TH ST & 108 & 3,945.0 & 22,790.0 & 36.5 & 211.0 & 2018 & 2022\\
+\bottomrule
+\end{longtable}
+
+\hypertarget{hin-intro}{%
+\chapter{HIN Intro}\label{hin-intro}}
+
+There are many established ways to examine crashes to better understand
+traffic safety patterns. Hotspot analyses have long been used to address
+high crash locations by retrospectively identifying the greatest
+concentrations of reported crashes over a determined period of time.
+Hotspot analysis is a valuable method to visualize locations with
+historic crash issues, but it is less effective at identifying locations
+with latent crash risk factors. In this way, it can be described as
+reactive. Additionally, hotspots may be less effective for analyzing
+bicyclist safety if crash frequencies are low due to geographic
+sparsity, which can exacerbate issues related to regression to the mean.
+Conversely, a systemic analysis is effective for identifying roadways
+with risk factors for crashes, independent from their crash history. For
+example, a wide arterial with a 45-mph posted speed limit, high traffic
+volumes, no bike facility, and few trip-attracting land uses may not
+have any reported bike crashes. However, the roadway and operational
+characteristics of that arterial are associated with higher bicycle
+crash risk. The absence of crashes is therefore not a reflection of low
+crash risk, but a reflection of lack of exposure that hotspot analyses
+cannot adequately convey. Systemic analysis is largely proactive; it
+allows planners and engineers to find locations that may warrant safety
+improvements before crashes have occurred there.
+
+High injury networks strike a balance between entirely retrospective and
+entirely proactive methods. Using spatial patterns of crash history, a
+High Injury Network identifies areas on the road network where crashes
+have been concentrated in sequence. A stretch of arterial roadway with
+crashes occurring at every other intersection might not show up on a
+traditional hotspot analysis because no one location has multiple
+crashes happening in the same place. However, the pattern of crashes all
+along the corridor suggests a larger safety issue. Further, the entire
+corridor likely shares similar characteristics that could be addressed
+systemically -- even the intersections along the corridor that have not
+yet had crashes.
+
+This section describes the development of a statewide High Injury
+Network and the results of the related High Injury Network analysis. The
+High Injury Network was built from a standard sliding windows analysis,
+which measures severity-weighted crash density by mode along segments on
+the network.
+
+\hypertarget{intro-and-purpose}{%
+\chapter{Intro and Purpose}\label{intro-and-purpose}}
+
+The Bipartisan Infrastructure Law (BIL), passed in 2021, created a new
+requirement for state departments of transportation to conduct a
+Vulnerable Road User Safety Assessment (VRUSA) every five years.
+Anchored in the Safe System Approach (SSA), this assessment must use a
+data-driven process to identify high-risk areas and incorporate equity
+and demographics into the analysis. Official guidance around the VRUSA
+recommends the use of a High Injury Network, predictive analysis, and/or
+systemic analysis to identify high-risk areas\footnote{\href{https://highways.dot.gov/sites/fhwa.dot.gov/files/2022-\%2010/VRU\%20Safety\%20Assessment\%20Guidance\%20FINAL_508.pdf}{https://highways.dot.gov/sites/fhwa.dot.gov/files/2022-
+  10/VRU\%20Safety\%20Assessment\%20Guidance\%20FINAL\_508.pdf}}.
+
+To improve the safety of vulnerable road users in the state of Minnesota
+and partially satisfy the new VRUSA requirements, the Minnesota
+Department of Transportation's (MnDOT) Office of Traffic Engineering
+(OTE) commissioned a Vulnerable Road User Safety Assessment in 2022,
+including the development of a High Injury Network for the state and a
+study of bicycling crashes from 2016-2019 in urban and rural areas
+within the state. The initial VRUSA built upon a recently-completed
+study of pedestrian safety in the state. The resulting VRUSA report
+captured trends and risk factors related to crashes involving
+bicyclists, pedestrians, and other vulnerable road users using personal
+conveyances across the state to direct infrastructure improvements and
+safety countermeasures, especially those that reduce crashes that result
+in cyclists' serious injury or death. This report builds on the prior
+VRUSA and safety work and updates the vulnerable road user safety
+analysis through:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  a descriptive safety analysis of more recent crash data
+\item
+  a Statewide High Injury Network, which was built on xxxxxx bicyclist,
+  pedestrian, and other vulnerable road user crashes from 2018-2022
+\item
+  integration of this updated VRUSA into the 2025-2029 SHSP
+\end{enumerate}
+
+This report focuses on vulnerable road user crashes, paralleling the
+2021 Minnesota Statewide Pedestrian Safety Analysis\footnote{\url{https://edocs-public.dot.state.mn.us/edocs_public/DMResultSet/download?docId=26158751}}
+and the 2022 Minnesota Vulnerable Road User Safety
+Assessment\footnote{\url{https://www.dot.state.mn.us/trafficeng/safety/vrusa.html}}.
+While bicyclists and pedestrians are different roadway users, use
+different infrastructure in many places, and have both overlapping and
+distinct safety concerns, both are vulnerable roadway users who are
+disproportionately killed and seriously injured in the transportation
+system. Often, bicycle and pedestrian countermeasures are planned and
+implemented in tandem, and an understanding of bicycle and pedestrian
+crash trends needs to inform these processes. Collectively, the 2021
+Minnesota Statewide Pedestrian Safety Analysis, the 2022 VRUSA, and the
+current VRUSA update (including the development of a High Injury Network
+for vulnerable road users) constitute a robust, data-driven process for
+identifying higher-risk areas in the transportation system.
+
+This report follows the methodology of the initial Minnesota Vulnerable
+Road User Safety Assessment. For the descriptive and systemic analyses,
+VRU crashes from 2018-2022 are conflated with roadway and environmental
+characteristics to create a dataset for analysis,including variables
+about injury severity, lighting, roadway functional classification,
+development intensity, Suitability of Pedestrian and Cyclist Environment
+(SPACE) scores and related factors, and bicycle infrastructure. Given
+data limitations, some of the detailed analysis focuses only on MnDOT's
+trunk highway network.
+
+This report also presents a statewide High Injury Network, which uses a
+standard sliding window analysis to measure severity-weighted crash
+density by mode. The HIN section of the analysis includes all vulnerable
+road users: bicyclists, pedestrians, and other personal conveyances.
+
+The rest of the report is structured as follows: First, an overview of
+the crash data is presented, followed by descriptive and systemic
+analyses. The descriptive analyses present trends among crash and
+temporal variables. The systemic analysis presents the High Injury
+Network.
+
+\hypertarget{data-overview}{%
+\section{Data Overview}\label{data-overview}}
+
+\hypertarget{crash-data}{%
+\subsection{Crash Data}\label{crash-data}}
+
+Crash, party, and vehicle data that were provided to the consultant team
+include reported crashes from 2018 through 2022 for crashes for all
+modes (pedestrians, bicyclists, other - personal conveyances, and
+motorists).
+
+All crash data were processed by Safe Streets Research \& Consulting
+(``Safe Streets'') and loaded into a Postgres database for additional
+analysis using Python, SQL, and R programming languages. The crash,
+party, and vehicle tables have a relational structure, which is common
+for storing crash data. For every reported crash, there is one crash
+record. The party and vehicle tables contain information for all the
+primary ``actors'' and their respective ``vehicles'' involved in the
+crash and have a many-to-one relationship -- i.e., all relevant party
+records are matched via a case identification number to the one crash
+record. The party and vehicle tables contain information for each
+primary person and their ``vehicle'' such as age, sex, pre-crash action,
+injury severity, and vehicle characteristics. This structure is shown in
+xxxxx.
+
+Safe Streets processed and restructured the crash data used in this
+analysis. New variables were calculated and assigned, and the quality of
+the data was assessed through a robust quality control process. All
+reported crashes were processed (not just VRU crashes), but only crashes
+that involved at least one VRU and at least one motorist are included in
+this analysis.
+
+Crashes involving a person using a scooter (e.g., shared e-scooter or
+ADA assistive device) are defined in the State of Minnesota as
+pedestrian crashes. However, they are coded in MnDOT's crash database as
+the unit type ``Other -- Personal Conveyance'' rather than as
+``Pedestrian''. The ``Other -- Personal Conveyance'' category also
+includes many modes that are not pedestrians, such as farm equipment
+(tractor, combine), all-terrain vehicles, snowmobiles, horse and buggy,
+and the like. There is no single coded field in the crash database that
+differentiates between pedestrians using personal conveyance devices and
+these other modes. A targeted effort was conducted to classify these
+crashes based on a keyword scan of officer narratives. While we could
+reliably differentiate these crashes from farm equipment based on this
+procedure, we could not consistently differentiate between mobility
+scooters and other devices used by people with mobility impairments and
+other types of scooters or pedestrian devices. As stated in the 2019
+Pedestrian Safety Analysis, a long-term solution to facilitate routine
+analysis of these modes in Minnesota would be to update the crash form
+with a field to indicate the type of scooter or device involvement
+(e.g., e-scooter, kick-scooter, ADA assistive device, moped scooter) and
+retrain officers to utilize the new field to record accurate and
+detailed information for more streamlined analysis.
+
+Crashes that met one or more of the following criteria were removed from
+the study dataset during the data consolidation process (see cccccc for
+the number of crashes that met each criterion; crashes can meet more
+than one criterion):
+
+\begin{itemize}
+\tightlist
+\item
+  Motorist-only (non-VRU) -- The research team received a complete crash
+  database for the years of interest (2018-2022). Because the scope of
+  this project is only to analyze vulnerable road users, crashes that do
+  not include a bicyclist, pedestrian, or someone potentially using a
+  personal conveyance device are excluded from the analysis.
+\item
+  Missing coordinates - Crash location GPS coordinates were not
+  available.
+\item
+  Farm Equipment -- The ``unit type'' is coded as ``Other -- Personal
+  Conveyance'' and the officer narrative includes the words ``tractor'',
+  ``horse'', or ``trailer.''
+\item
+  Too far away from the street or along a private street - The
+  geospatial location of the crash is greater than 300 feet from any
+  street or the street was a private roadway.
+\item
+  The crash occurred in a parking lot -- The location type recorded in
+  the crash data is a parking lot.
+\item
+  Crashes that involved only a bicyclist and no other road users are not
+  included in the crash data.
+\end{itemize}
+
+\hypertarget{injury-severity-assignment}{%
+\section{Injury Severity Assignment}\label{injury-severity-assignment}}
+
+The officer-reported injury severity levels used in this analysis are
+specific to the most severely injured (MSI) road user involved in the
+crash. This injury severity is different than the reported MSI assigned
+to each crash record. In most cases, VRUs are the most severely injured
+victim involved in the crash. Using the victim-level severity helps
+improve accuracy of summarizing injury severities. It should be noted
+that research from the San Francisco Department of Public Health has
+documented reporting errors related to mis-coded injury severities,
+particularly for suspected serious injuries\footnote{\href{https://www.visionzerosf.org/wp-content/uploads/2021/11/Severe-Injury-Trends\%202011-2020\%20final\%20report.pdf}{https://www.visionzerosf.org/wp-content/uploads/2021/11/Severe-Injury-Trends
+  2011-2020 final report.pdf}}, suggesting a need for some fluidity when
+discussing minor and serious injuries. This analysis does not have
+access to hospital records to verify injury severities stored in the
+crash data, so the results in this document reflect the best available
+data at the time. For reference, the injury severities recorded in the
+crash data and summarized in this analysis are defined as followed:
+
+\begin{itemize}
+\tightlist
+\item
+  K - Fatal: A fatal injury is any injury that results in death within
+  30 days after the motor vehicle crash in which the injury occurred. If
+  the person did not die at the scene but died within 30 days of the
+  motor vehicle crash in which the injury occurred, the injury
+  classification should be changed from the injury previously assigned
+  to ``Fatal Injury.''
+\item
+  A -- Suspected Serious Injury: An incapacitating injury is any injury,
+  other than a fatal injury, which prevents the injured person from
+  walking, driving, or normally continuing the activities the person was
+  capable of performing before the injury occurred. Also called
+  ``Serious Injury'' or ``Injury A''. This category includes:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    severe lacerations
+  \item
+    broken or distorted limbs
+  \item
+    skull or chest injuries
+  \item
+    abdominal injuries
+  \item
+    unconsciousness at or when taken from the scene of the crash, or
+    unable to leave the crash scene without assistance
+  \end{itemize}
+\item
+  B -- Suspected Minor Injury: A minor injury is any injury that is
+  evident at the scene of the crash, other than fatal or serious
+  injuries. Also called ``Minor Injury'' or ``Injury B''. Examples
+  include:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    lump on the head
+  \item
+    abrasions
+  \item
+    bruises
+  \item
+    minor lacerations (cuts on the skin surface with minimal bleeding
+    and no exposure of deeper tissue/muscle)
+  \end{itemize}
+\item
+  C -- Possible Injury: A possible injury is any injury reported or
+  claimed which is not a fatal, suspected serious, or suspected minor
+  injury. Possible injuries are those that are reported by the person or
+  are indicated by their behavior, but no wounds or injuries are readily
+  evident. Examples include:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    momentary loss of consciousness
+  \item
+    claim of injury
+  \item
+    limping
+  \item
+    complaint of pain or nausea
+  \end{itemize}
+\item
+  O -- Property Damage Only: Crash where only property is damaged. No
+  injuries resulted from the crash.
+\end{itemize}
+
+\hypertarget{roadway-and-contextual-data}{%
+\section{Roadway and Contextual
+Data}\label{roadway-and-contextual-data}}
+
+The crash dataset includes many useful variables for analyzing VRU
+safety; however, detailed information about roadway conditions and
+nearby land uses is also necessary to provide a more complete
+understanding of the context in which crashes occurred and support
+future countermeasure selection. A robust data collection and
+consolidation process was conducted as part of the 2021 MnDOT Statewide
+Pedestrian Safety Analysis. Data from that effort was provided to the
+study team for use in this VRU assessment. Data collected during the
+Statewide Pedestrian Safety Analysis was re-processed using the same
+methods documented in the data collection section of the Pedestrian
+Safety Analysis. Please refer to the Statewide Pedestrian Crash
+Analysis\footnote{\url{https://edocs-public.dot.state.mn.us/edocs_public/DMResultSet/download?docId=26158751}}
+for a detailed summary regarding data usage and limitations.
+
+\appendix
+\addcontentsline{toc}{part}{Appendices}
+
+\hypertarget{acronyms}{%
+\chapter{Acronyms}\label{acronyms}}
+
+\hypertarget{tbl-acronyms}{}
+\begin{longtable}[]{@{}ll@{}}
+\caption{\label{tbl-acronyms}Acronyms}\tabularnewline
+\toprule()
+Acronym & Definition \\
+\midrule()
+\endfirsthead
+\toprule()
+Acronym & Definition \\
+\midrule()
+\endhead
+AADT & Annual Average Daily Traffic \\
+ADA & Americans with Disabilities Act \\
+FHWA & Federal Highway Administration \\
+GIS & Geographic Information System \\
+HIN & High Injury Network \\
+KA & Killed of severely injured \\
+MSI & Most severely injured \\
+MC & Motorcycle \\
+MV & Motor Vehicle \\
+PED & Pedestrian \\
+PHB & Pedestrian Hybrid Beacon \\
+RRFB & Rectangular Rapid Flashing Beacon \\
+SSA & Safe System Approach \\
+VPD & Vehicles per day \\
+VRU & Vulnerable road user \\
+VRUSA & Vulnerable Road User Safety Assessment \\
+K {[}**K**ABCO{]} & Fatal Injury Severity \\
+A {[}K**A**BCO{]} & Suspected Serious Injury \\
+C {[}KA**B**CO{]} & Minor Injury \\
+C {[}KAB**C**O{]} & Possible Injury \\
+O {[}KABC**O**{]} or PDO & Property Damage Only \\
+KA or KSI & Killed or Seriously Injured \\
+\bottomrule()
+\end{longtable}
+
+
+\backmatter
+
+\end{document}

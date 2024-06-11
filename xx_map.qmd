@@ -1,0 +1,140 @@
+# Mapping + Counts
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  fig.pos = "H",
+  out.width = "100%",
+  dpi = 300
+)
+
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+
+# Load packages -----
+source("R/_load_packages.R")
+source("R/_leaflet_helpers.R")
+source("R/_color_palettes.R")
+source("R/_descriptive_helpers.R")
+source("R/_project_directory.R")
+
+perm_locs <- read_rdata('perm_locs.rds')
+sdc_counts <- read_rdata('sdc_counts.rds')
+
+```
+
+# Introduction
+
+Note: counts filtered to only include counts conducted between 2018-2022. We have all historical counts for permanent counters and 2017-2023 SDC stored in our database. 
+
+## Count Locations
+
+
+@fig-count_locs displays where we have permanent (magenta) and short duration counts (yellow) available for this effort.
+
+```{r fig-count_locs}
+#| fig.cap = "Permanant and Short Duration Count Locations",
+#| out.width = "95%",
+#| out.height = "650px"
+source('R/map_count_locations.R')
+count_locs
+```
+
+### Permanent Counters
+
+```{r}
+perm_static <- read.csv(project_path("/data/2022_0404_perm_counter/Book1.csv"))
+perm_static <- perm_static %>% 
+  rename(
+    name=`Permanent.Counter.Location.Name`, 
+    modes=`Modes`, 
+    install_date = `Install.Date`, 
+    uninstall_date = `Out.of.Service.Date`
+    )
+```
+
+```{r tbl-perm_summary, echo=FALSE}
+#| tbl-cap: "Perm Summary/Overview (only includes 2018-2022 counts)."
+left_join(perm_locs, perm_static, by='name') %>% 
+  select(name, install_date, uninstall_date, obs_duration, modes) %>% 
+  arrange(name) %>% 
+  kable(table.attr = "style = \"color: black;\"") %>%
+    kable_styling() %>% 
+    row_spec(0, bold = T, color = "white", background = ssrc_blue) 
+```
+
+### Consectuive Zeros
+```{r}
+perm_static_zeros <- read.csv(project_path("/T6_DevelopMethodsExposure&SafetyPrediction/sea_factors/qc_zeros_results.csv"))
+```
+
+```{r tbl-perm_summary_zero, echo=FALSE}
+#| tbl-cap: "QC: Consectuive Zeros (only includes 2018-2022 counts)."
+perm_static_zeros %>% 
+  mutate(
+    pct_flagged = percent(pct_flagged, accuracy= 0.01),
+    n_records = number(n_records, accuracy=1.0, big.mark=","), 
+    n_zero_flags = number(n_zero_flags, accuracy=1.0, big.mark=",")
+  ) %>% 
+  arrange(station_id) %>% 
+  kable(table.attr = "style = \"color: black;\"") %>%
+    kable_styling() %>% 
+    row_spec(0, bold = T, color = "white", background = ssrc_blue) 
+```
+
+### Short Duration Counts
+
+```{r tbl-sdc_summary, echo=FALSE}
+#| tbl-cap: "SDC Summary/Overview."
+sdc_counts %>% 
+  filter(!is.na(study_time)) %>% 
+  mutate(
+    val = 0.25, 
+    study_time_cat = case_when( 
+      study_time %in% c('10: 00','10: 15','10: 30','10: 45','11: 00','11: 15','11: 30','11: 45') ~ '10:00 AM-12:00 PM', 
+      study_time %in% c('12: 00','12: 15','12: 30','12: 45','13: 00','13: 15','13: 30','13: 45') ~ '12:00 PM-2:00 PM', 
+      study_time %in% c('17: 00','17: 15','17: 30','17: 45','18: 00','18: 15','18: 30','18: 45') ~ '5:00 PM-7:00 PM',
+      TRUE ~ study_time
+      ),
+    dow = case_when(
+      study_day_week %in% c('Saturday', 'Sunday') ~ 'Weekend', 
+      TRUE ~ 'Weekday')
+    ) %>% 
+  group_by(dow, study_time_cat) %>% 
+  summarise(
+      n_sites = n_distinct(site_descr),
+      n_hours = sum(val),
+      n_bike = number(sum(bike_count), accuracy = 0.1, big.mark = ","), 
+      n_ped = number(sum(ped_count), accuracy = 0.1, big.mark = ","),
+      bike_per_hr = number((sum(bike_count) / sum(val)), accuracy = 0.1, big.mark = ","), 
+      ped_per_hr = number((sum(ped_count) / sum(val)), accuracy = 0.1, big.mark = ","), 
+    ) %>% 
+  kable(table.attr = "style = \"color: black;\"") %>%
+  kable_styling() %>% 
+  row_spec(0, bold = T, color = "white", background = ssrc_blue) 
+```
+
+```{r tbl-sdc_summary_year, echo=FALSE}
+#| tbl-cap: "SDC Locations."
+sdc_counts %>% 
+  filter(!is.na(study_time)) %>% 
+  mutate(val = 0.25) %>% 
+  group_by(site_descr) %>% 
+  summarise(
+      n_hours = sum(val),
+      n_bike = number(sum(bike_count), accuracy = 0.1, big.mark = ","), 
+      n_ped = number(sum(ped_count), accuracy = 0.1, big.mark = ","),
+      bike_per_hr = number((sum(bike_count) / sum(val)), accuracy = 0.1, big.mark = ","), 
+      ped_per_hr = number((sum(ped_count) / sum(val)), accuracy = 0.1, big.mark = ","), 
+      start_year = min(study_year), 
+      end_year = max(study_year)
+    ) %>% 
+  arrange(site_descr) %>% 
+  kable(table.attr = "style = \"color: black;\"") %>%
+  kable_styling() %>% 
+  row_spec(0, bold = T, color = "white", background = ssrc_blue) 
+
+```
+
+
+
