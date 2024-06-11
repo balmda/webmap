@@ -10,7 +10,7 @@ table_info <- function(df) {
   )
 }
 
-
+ 
 # Function to summarize mode-specific crashes by one other categorical variable
 # WITHOUT SEGMENT DETAILS
 ka_mode_summary <- function(x, y, a, b) {
