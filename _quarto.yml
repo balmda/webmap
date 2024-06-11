@@ -68,6 +68,7 @@ format:
       - style/main-logo.png
       - style/Safe Streets Logo_outlines.png
       - style/standalone_header_footer.css
+      - style/SafeStreetsLogo_small.jpg
   docx:
     output-file: testing_word_output.docx
     output-ext: docx
